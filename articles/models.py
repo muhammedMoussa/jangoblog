@@ -5,7 +5,12 @@ class Article(models.Model):
     slug  = models.SlugField()
     body  = models.TextField()
     date  = models.DateTimeField(auto_now_add=True)
-    # @TODO thumbnials and author
+    # @TODO thumbnials and author.
 
+    # For Displying Title on the head.
     def __str__(self):
         return self.title
+
+    # For Minimize body content callback.
+    def snippet(self):
+        return self.body[:50] + '...'
