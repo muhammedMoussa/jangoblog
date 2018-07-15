@@ -5,7 +5,8 @@ class Article(models.Model):
     slug  = models.SlugField()
     body  = models.TextField()
     date  = models.DateTimeField(auto_now_add=True)
-    # @TODO thumbnials and author.
+    thumb = models.ImageField(default='default.png', blank=True)
+    # @TODO author.
 
     # For Displying Title on the head.
     def __str__(self):
