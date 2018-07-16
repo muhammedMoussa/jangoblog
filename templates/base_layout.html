@@ -9,21 +9,30 @@
     <title>Articles</title>
 </head>
 <body>
-    <div class="wrapper">
-        <a href="{% url 'list' %}">
+    <header class="wrapper">
+        <a href="{% url 'home' %}">
             <img src="{% static 'logo.png' %}" alt="logo" width="50" height="50">
         </a>
-        <h2><a href="{% url 'create' %}">Create</a> </h2>
         <nav>
             <ul>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'create' %}" class="highlight">Create</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
                 <li>
                     <form action="{% url 'logout' %}" method="POST" class="logout-link">
                         {% csrf_token %}
                         <button type="submit">Logout</button>
                     </form>
                 </li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Loing</a></li>
+                <li><a href="{% url 'signup' %}">Signup</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                {% endif %}
             </ul>
         </nav>
+    </header>
+    <div class="wrapper">
         {% block content %}
         {% endblock %}
     </div>
