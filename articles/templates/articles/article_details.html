@@ -5,8 +5,8 @@
         <img src="{{ article.thumb.url }}" width="500" height="250"/>
         <h2>{{ article.title }}</h2>
         <p>{{ article.body }}</p>
+        <h3>by @{{ article.author.username }}</h3>
         <p>{{ article.date }}</p>
-        <p>{{ article }}</p>
     </div>
 </div>
 {% endblock %}

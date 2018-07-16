@@ -5,8 +5,10 @@
         <div class="article">
             <h3><a href="{% url 'detail' slug=article.slug %}">{{ article.title }}</a></h3>
             <p>{{ article.snippet }}</p>
+            <p>author @{{ article.author.username }}</p>
             <p>{{ article.date }}</p>
         </div>
+        <br>
         {% endfor %}
     </div>
 {% endblock %}

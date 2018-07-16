@@ -1,12 +1,13 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Article(models.Model):
-    title = models.CharField(max_length=100)
-    slug  = models.SlugField()
-    body  = models.TextField()
-    date  = models.DateTimeField(auto_now_add=True)
-    thumb = models.ImageField(default='default.png', blank=True)
-    # @TODO author.
+    title  = models.CharField(max_length=100)
+    slug   = models.SlugField()
+    body   = models.TextField()
+    date   = models.DateTimeField(auto_now_add=True)
+    thumb  = models.ImageField(default='default.png', blank=True)
+    author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
 
     # For Displying Title on the head.
     def __str__(self):
