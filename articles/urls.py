@@ -1,9 +1,9 @@
 from django.contrib import admin
-from django.urls import path,re_path
+from django.urls import path
 from . import views
 
 urlpatterns = [
     path('/', views.articles_list, name='list'),
+    path('/create', views.article_create, name='create'),
     path('/<slug>/', views.article_detail, name='detail')
-    # re_path(r'^(?P<slug>[\w-]+)/$', views.article_detail)
 ]
